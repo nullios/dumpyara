@@ -38,13 +38,13 @@ $PROJECT_DIR/Firmware_extractor/extractor.sh $PROJECT_DIR/input/${FILE} $PROJECT
 cd $PROJECT_DIR/working/${UNZIP_DIR}
 
 if [ ! -d "$PROJECT_DIR/extract-dtb" ]; then
-    git clone https://github.com/PabloCastellano/extract-dtb $PROJECT_DIR/extract-dtb
+    git clone https://github.com/PabloCastellano/extract-dtb $PROJECT_DIR/extract_dtb
 fi
-python3 $PROJECT_DIR/extract-dtb/extract-dtb.py $PROJECT_DIR/working/${UNZIP_DIR}/boot.img -o $PROJECT_DIR/working/${UNZIP_DIR}/bootimg > /dev/null # Extract boot
+python3 $PROJECT_DIR/extract_dtb/extract_dtb/extract_dtb.py $PROJECT_DIR/working/${UNZIP_DIR}/boot.img -o $PROJECT_DIR/working/${UNZIP_DIR}/bootimg > /dev/null # Extract boot
 echo 'boot extracted'
 
 if [[ -f $PROJECT_DIR/working/${UNZIP_DIR}/dtbo.img ]]; then
-    python3 $PROJECT_DIR/extract-dtb/extract-dtb.py $PROJECT_DIR/working/${UNZIP_DIR}/dtbo.img -o $PROJECT_DIR/working/${UNZIP_DIR}/dtbo > /dev/null # Extract dtbo
+    python3 $PROJECT_DIR/extract_dtb/extract_dtb/extract_dtb.py $PROJECT_DIR/working/${UNZIP_DIR}/dtbo.img -o $PROJECT_DIR/working/${UNZIP_DIR}/dtbo > /dev/null # Extract dtbo
     echo 'dtbo extracted'
 fi
 
